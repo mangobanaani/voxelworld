@@ -9,7 +9,7 @@ export default function Page() {
       <VoxelScene />
       <div style={{position:'absolute', top:16, left:16, right:16, display:'flex', gap:16}}>
         <GlassPanel>
-          <h1 style={{margin:0, fontSize:'1.1rem', letterSpacing:'.05em'}}>Voxel Earth</h1>
+          <h1 style={{margin:0, fontSize:'1.1rem', letterSpacing:'.05em'}}>VoxelWorld</h1>
           <p style={{margin:'4px 0 0', fontSize:'.8rem', opacity:.8}}>WASD / arrows fly, QE up/down, scroll zoom, drag to look</p>
           <p style={{margin:'4px 0 0', fontSize:'.7rem', opacity:.6}}>
             (c) by <a 

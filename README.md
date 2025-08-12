@@ -1,8 +1,8 @@
-# VoxelEarth
+# VoxelWorld
 
 A simple procedural voxel world built with **Next.js** and **Three.js**. Explore terrain with Minecraft-style voxels, featuring 8 distinct biomes from deep ocean trenches to snowy mountain peaks.
 
-VoxelEarth uses multi-layered mathematical noise functions to generate realistic terrain in real-time. 
+VoxelWorld uses multi-layered mathematical noise functions to generate realistic terrain in real-time. 
 
 ## Screenshots
 
@@ -66,5 +66,5 @@ You are free to use, modify, and distribute this software under the terms of the
 
 **Copyright (c) 2025 mangobanaani**
 
-*VoxelEarth - Created with passion for voxel worlds and procedural generation*
+*VoxelWorld - Created with passion for voxel worlds and procedural generation*
 
