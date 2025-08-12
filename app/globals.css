@@ -1,0 +1,9 @@
+html, body { margin:0; padding:0; font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; background:#030712; color:#fff; }
+* { box-sizing: border-box; }
+body { overscroll-behavior:none; }
+::selection { background:#2563eb55; }
+
+@media (prefers-color-scheme: light) {
+  html, body { background:#f8fafc; color:#0f172a; }
+}
+
