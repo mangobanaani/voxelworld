@@ -2,20 +2,17 @@
 
 A simple procedural voxel world built with **Next.js** and **Three.js**. Explore terrain with Minecraft-style voxels, featuring 8 distinct biomes from deep ocean trenches to snowy mountain peaks.
 
-VoxelEarth supports both procedural and custom terrain generation. Bring your own images so serve as basis for landscape generation. 
+VoxelEarth uses multi-layered mathematical noise functions to generate realistic terrain in real-time. 
 
 ## Screenshots
 
 ![Voxel World Overview](./voxel-world-screenshot-1.jpg)
 *Expansive voxel terrain with procedural biomes and gradient sky*
 
-![Detailed Terrain View](./voxel-world-screenshot-2.jpg)
-*Close-up view showing voxel detail and water systems*
-
 ## Features
 
 - **Procedural Terrain Generation**: Multi-layered noise functions create realistic landscapes
-- **Custom Terrain Support**: Bring your own heightmap and color images to generate custom worlds
+- **5-Layer Noise System**: Continental features down to fine detail variation
 - **8 Biome System**: Snow, rock, forest, grass, dirt, sand, water, and deep water biomes
 - **Water Level System**: Realistic lakes and water bodies with proper depth rendering
 - **First-Person Controls**: Smooth WASD movement with mouse look and pointer lock
@@ -48,7 +45,7 @@ Then open [http://localhost:3000](http://localhost:3000) to explore your voxel w
 - **3D Engine**: Three.js with WebGL rendering
 - **Terrain**: 128x128 grid generating 16,000+ voxel instances
 - **Materials**: Separate InstancedMesh for each biome type
-- **Generation**: Multi-layered procedural noise from continental to fine detail
+- **Generation**: 5-layer mathematical noise (continental to fine detail)
 - **Collision**: Ground collision system prevents falling through terrain
 
 ## Testing
