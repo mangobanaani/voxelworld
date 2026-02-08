@@ -289,6 +289,17 @@ export default function VoxelScene() {
       mount.removeEventListener('click', onClick);
       window.removeEventListener('resize', onResize);
       mount.removeChild(renderer.domElement);
+      voxelGeometry.dispose();
+      skyGeometry.dispose();
+      skyMaterial.dispose();
+      snowMaterial.dispose();
+      rockMaterial.dispose();
+      grassMaterial.dispose();
+      forestMaterial.dispose();
+      dirtMaterial.dispose();
+      sandMaterial.dispose();
+      waterMaterial.dispose();
+      deepWaterMaterial.dispose();
       renderer.dispose();
     };
   }, []);
