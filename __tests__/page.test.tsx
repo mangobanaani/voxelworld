@@ -13,7 +13,7 @@ describe('Home Page', () => {
   it('renders the main heading', () => {
     render(<Home />)
     
-    const heading = screen.getByRole('heading', { name: /voxel earth/i })
+    const heading = screen.getByRole('heading', { name: /voxelworld/i })
     expect(heading).toBeInTheDocument()
   })
 
@@ -27,7 +27,7 @@ describe('Home Page', () => {
   it('renders the glass panel with controls description', () => {
     render(<Home />)
     
-    const controlsText = screen.getByText(/wasd.*arrows fly/i)
+    const controlsText = screen.getByText(/wasd fly.*click to look/i)
     expect(controlsText).toBeInTheDocument()
   })
 
