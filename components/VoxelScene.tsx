@@ -53,7 +53,6 @@ export default function VoxelScene() {
     mount.appendChild(renderer.domElement);
     
     // === Heightmap-based voxel terrain with multiple materials ===
-    const CHUNK_SIZE = 32;
     const VOXEL_SIZE = 20;
     
     // Create voxel geometry
