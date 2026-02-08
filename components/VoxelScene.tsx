@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useEffect } from 'react';
 import * as THREE from 'three';
+import { generateTerrainHeight, getBiomeType } from '../lib/voxel-utils';
 
 export default function VoxelScene() {
   const mountRef = useRef<HTMLDivElement | null>(null);
@@ -93,12 +94,7 @@ export default function VoxelScene() {
       const x = (gridX - gridSize/2) * VOXEL_SIZE;
       const z = (gridZ - gridSize/2) * VOXEL_SIZE;
       
-      // Generate height using more complex, varied noise for larger world
-      const height = Math.sin(x * 0.005) * Math.cos(z * 0.005) * 60 +         // Very large continents
-                    Math.sin(x * 0.015) * Math.cos(z * 0.015) * 30 +         // Large mountain ranges
-                    Math.sin(x * 0.03) * Math.cos(z * 0.03) * 15 +          // Hills
-                    Math.sin(x * 0.08) * Math.cos(z * 0.08) * 8 +           // Small details
-                    Math.sin(x * 0.15) * Math.cos(z * 0.15) * 3;            // Fine details
+      const height = generateTerrainHeight(x, z);
       
       // Create solid columns from base level up to surface
       const baseLevel = -60; // Base level for all terrain
@@ -122,24 +118,15 @@ export default function VoxelScene() {
           }
         } else {
           // Solid terrain - determine biome based on surface height
-          const heightRatio = (height + 120) / 240; // Adjust for new height range
-          
-          if (heightRatio > 0.85) {
-            snowMesh.setMatrixAt(snowCount++, tempObject.matrix);
-          } else if (heightRatio > 0.75) {
-            rockMesh.setMatrixAt(rockCount++, tempObject.matrix);
-          } else if (heightRatio > 0.6) {
-            forestMesh.setMatrixAt(forestCount++, tempObject.matrix);
-          } else if (heightRatio > 0.45) {
-            grassMesh.setMatrixAt(grassCount++, tempObject.matrix);
-          } else if (heightRatio > 0.3) {
-            dirtMesh.setMatrixAt(dirtCount++, tempObject.matrix);
-          } else if (heightRatio > 0.15) {
-            sandMesh.setMatrixAt(sandCount++, tempObject.matrix);
-          } else if (heightRatio > 0.05) {
-            waterMesh.setMatrixAt(waterCount++, tempObject.matrix);
-          } else {
-            deepWaterMesh.setMatrixAt(deepWaterCount++, tempObject.matrix);
+          switch (getBiomeType(height)) {
+            case 'snow':      snowMesh.setMatrixAt(snowCount++, tempObject.matrix); break;
+            case 'rock':      rockMesh.setMatrixAt(rockCount++, tempObject.matrix); break;
+            case 'forest':    forestMesh.setMatrixAt(forestCount++, tempObject.matrix); break;
+            case 'grass':     grassMesh.setMatrixAt(grassCount++, tempObject.matrix); break;
+            case 'dirt':      dirtMesh.setMatrixAt(dirtCount++, tempObject.matrix); break;
+            case 'sand':      sandMesh.setMatrixAt(sandCount++, tempObject.matrix); break;
+            case 'water':     waterMesh.setMatrixAt(waterCount++, tempObject.matrix); break;
+            case 'deepWater': deepWaterMesh.setMatrixAt(deepWaterCount++, tempObject.matrix); break;
           }
         }
       }

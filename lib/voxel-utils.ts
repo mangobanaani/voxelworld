@@ -1,8 +1,10 @@
 // Simple utility functions that might be used in the voxel world
 export function generateTerrainHeight(x: number, z: number): number {
-  return Math.sin(x * 0.01) * Math.cos(z * 0.01) * 50 +
+  return Math.sin(x * 0.005) * Math.cos(z * 0.005) * 60 +
+         Math.sin(x * 0.015) * Math.cos(z * 0.015) * 30 +
          Math.sin(x * 0.03) * Math.cos(z * 0.03) * 15 +
-         Math.sin(x * 0.08) * Math.cos(z * 0.08) * 8;
+         Math.sin(x * 0.08) * Math.cos(z * 0.08) * 8 +
+         Math.sin(x * 0.15) * Math.cos(z * 0.15) * 3;
 }
 
 export function getBiomeType(height: number): string {
