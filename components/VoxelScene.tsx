@@ -144,12 +144,8 @@ export default function VoxelScene() {
         }
       }
       
-      // Debug first few
-      if (i < 5) {
-        console.log(`Column ${i}: height=${height.toFixed(1)}, surface=${surfaceLevel}, layers=${Math.floor((surfaceLevel - baseLevel) / VOXEL_SIZE) + 1}`);
-      }
     }
-    
+
     // Set instance counts and update matrices
     snowMesh.count = snowCount;
     rockMesh.count = rockCount;
@@ -178,8 +174,6 @@ export default function VoxelScene() {
     scene.add(sandMesh);
     scene.add(waterMesh);
     scene.add(deepWaterMesh);
-    
-    console.log(`Biome counts: snow=${snowCount}, rock=${rockCount}, grass=${grassCount}, forest=${forestCount}, dirt=${dirtCount}, sand=${sandCount}, water=${waterCount}, deepWater=${deepWaterCount}`);
     
     // Add proper lighting for realistic 3D shading
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.4); // Soft ambient light
