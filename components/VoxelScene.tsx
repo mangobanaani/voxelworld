@@ -223,7 +223,14 @@ export default function VoxelScene() {
     document.addEventListener('pointerlockchange', onPointerLockChange);
     mount.addEventListener('mousemove', onMouseMove);
     mount.addEventListener('click', onClick);
-    
+
+    const onResize = () => {
+      camera.aspect = mount.clientWidth / mount.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(mount.clientWidth, mount.clientHeight);
+    };
+    window.addEventListener('resize', onResize);
+
     // Animation loop with movement
     let running = true;
     const moveSpeed = 2;
@@ -280,6 +287,7 @@ export default function VoxelScene() {
       document.removeEventListener('pointerlockchange', onPointerLockChange);
       mount.removeEventListener('mousemove', onMouseMove);
       mount.removeEventListener('click', onClick);
+      window.removeEventListener('resize', onResize);
       mount.removeChild(renderer.domElement);
       renderer.dispose();
     };
